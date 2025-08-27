@@ -80,7 +80,7 @@ racon -t 30 NANOFILT_file.fastq.gz FLYEkeepunclassified_assembly.sam FLYEkeepunc
 medaka_consensus -i NANOFILT_file.fastq.gz -d FLYE_racon.fasta -o medaka_folder -t 30 -m r941_min_high_g360
 ```
 
-### STEP 3: Postprocessing of the assemblies with ILRA (only step 1, 2, 3). It is a version not published in github https://github.com/ThomasDOtto/ILRA. The version 1 of the article have been posted in biorxiv in August 1, 2021-19:01; https://www.biorxiv.org/content/10.1101/2021.07.30.454413v3.article-info
+### STEP 3: Postprocessing of the assemblies with ILRA (only step 1, 2, 3). It is prerelease version not published in github https://github.com/ThomasDOtto/ILRA. The version 1 of the article have been posted in biorxiv in August 1, 2021-19:01; https://www.biorxiv.org/content/10.1101/2021.07.30.454413v3.article-info
 
 ```bash
 cd /home/amelie/raid8/ILRA
@@ -94,14 +94,14 @@ bash ILRA.sh -a medaka.fasta -o Output_folder -c NANOFILT_file.fastq.gz -n name_
 
 #### Mapping short reads with bowtie2, transform the sam in bam and then sorting/indexing the bam with samtools and use Pilon to correct the assembly.For the first step we downsampling the data to a mean of 1000 reads per position. 
 
-#### Align the short reads
+#### Align the short reads (BOWTIE2: v2.4.4)
 
 ```bash
 bowtie2-build --threads 30 output_step3ILRA_folder output_step3ILRA.fasta
 bowtie2 --threads 30 -x output_step3ILRA.fasta -1 illumina_shortreads_1.fastq.gz -2 illumina_shortreads_2.fastq.gz -S output_step3ILRA.sam
 ```
 
-#### Transform the output .sam to a .bam
+#### Transform the output .sam to a .bam (SAMTOOLS: v1.13)
 
 ```bash
 samtools view -S -b output_step3ILRA.sam -@ 30 > output_step3ILRA.bam
@@ -109,26 +109,26 @@ samtools sort output_step3ILRA.bam -@ 30 -o output_step3ILRAsorted.bam
 samtools index output_step3ILRAsorted.bam
 ```
 
-#### variant bam for downsampling. For heterogenous genome, treshold: above 1000 reads 
+#### variant bam for downsampling. For heterogenous genome, treshold: above 1000 reads (VARIANTBAM: v1.4.4a)
 
 ```bash
 variant $output_step3ILRAsorted.bam -m 1000 -o output_step3ILRAsortedsubsamp.bam -b
 ```
 
-#### Sort the .bam
+#### Sort the .bam (SAMTOOLS: v1.13)
 
 ```bash
 samtools sort output_step3ILRAsortedsubsamp.bam -@ 30 -o output_step3ILRAsortedsubsampsorted.bam
 samtools index output_step3ILRAsortedsubsampsorted.bam
 ```
 
-#### pilon_command line
+#### pilon_command line (PILON: v1.23)
 
 ```bash
 pilon --genome output_step3ILRA.fasta --frags output_step3ILRAsortedsubsampsorted.bam --output Pilon_round1_folder --changes --fix all --threads 30 --verbose | tee Pilon_round1.pilon
 ```
 
-#### PILON round2
+#### PILON round2 (BOWTIE2: v2.4.4; SAMTOOLS: v1.13; VARIANTBAM: v1.4.4a; PILON: v1.23)
 
 ```bash
 bowtie2-build --threads 30 Pilon_round1_folder Pilon_round1.fasta
@@ -142,7 +142,7 @@ samtools index Pilon_round1_sortedsubsampsorted.bam
 pilon --genome Pilon_round1.fasta --frags Pilon_round1_sortedsubsampsorted.bam --output Pilon_round2_folder --changes --fix all --threads 30 --verbose | tee Pilon_round2.pilon
 ```
 
-#### PILON round3
+#### PILON round3 (BOWTIE2: v2.4.4; SAMTOOLS: v1.13; VARIANTBAM: v1.4.4a; PILON: v1.23)
 
 ```bash
 bowtie2-build --threads 30 Pilon_round2_folder Pilon_round2.fasta
@@ -156,7 +156,7 @@ samtools index Pilon_round2_sortedsubsampsorted.bam
 pilon --genome Pilon_round2.fasta --frags Pilon_round2_sortedsubsampsorted.bam --output Pilon_round3_folder --changes --fix all --threads 30 --verbose | tee Pilon_round3.pilon
 ```
 
-### STEP 5: Postprocessing of the assemblies with ILRA only step 5 and 7. It is a version not published in github https://github.com/ThomasDOtto/ILRA. The version 1 of the article have been posted in biorxiv in August 1, 2021-19:01; https://www.biorxiv.org/content/10.1101/2021.07.30.454413v3.article-info
+### STEP 5: Postprocessing of the assemblies with ILRA only step 5 and 7. It is prerelease version not published in github https://github.com/ThomasDOtto/ILRA. The version 1 of the article have been posted in biorxiv in August 1, 2021-19:01; https://www.biorxiv.org/content/10.1101/2021.07.30.454413v3.article-info
 
 ```bash
 cd /home/amelie/raid8/ILRA
@@ -172,9 +172,18 @@ bash ILRA.sh -a Pilon_round3.fasta -o Output_folder_Step5 -c NANOFILT_file.fastq
 
 ### STEP6: assembly quality
 
-#### QUAST
+#### QUAST (v5.2.0):
 
-#### BUSCO
+```bash
+quast -o QUAST_folder -r reference.fasta -g reference.gff -t 30 FLYE_assembly.fasta FLYEkeepunclassified_assembly.fasta FLYE_racon.fasta medaka.fasta Pilonround1.fasta Pilonround2.fasta Pilonround3.fasta outputgenome.ILRA.fasta
+```
+#### BUSCO (genome; v5.8.3)
+
+```bash
+busco -f -c 30 -m genome -i outputgenome.ILRA.fasta -o BUSCOoutputgenome -l apicomplexa_odb10
+```
+
+#### BUSCO (protein; v)
 
 ## ANNOTATION
 
@@ -198,4 +207,4 @@ perl /home/amelie/EDTA/EDTA.pl --genome file.fasta --overwrite 1 --force 1 --sen
 Option used: Use of reference protein evidence, Pseudogene detection, Structural annotation using AUGUSTUS with a score of 0.2 and the RATT transfer tool with the Assembly transfert type, Taxon ID: 77521. OrthoFinder based on Diamond hits (e-value cutoff: 10-3). 
 https://companion.gla.ac.uk/
 
-#### BUSCO protein
+
