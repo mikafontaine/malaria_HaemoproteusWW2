@@ -180,7 +180,8 @@ quast -o QUAST_folder -r reference.fasta -g reference.gff -t 30 FLYE_assembly.fa
 #### BUSCO (genome; v5.8.3)
 
 ```bash
-busco -f -c 30 -m genome -i outputgenome.ILRA.fasta -o BUSCOoutputgenome -l apicomplexa_odb10
+busco -f -c 30 -m genome -i outputgenome.ILRA.fasta -o BUSCOapifolder -l apicomplexa_odb10
+busco -f -c 30 -m genome -i outputgenome.ILRA.fasta -o BUSCOplasmofolder -l plasmodium_odb10
 ```
 
 #### BUSCO (protein; v)
