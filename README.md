@@ -1,5 +1,12 @@
 # Heamoproteus majoris lineage WW2: Pipeline of the assembly and annotations
 
+This repository report the details of the pipline used for the assembly and annotations of the *Heamoproteus majoris* lineage WW2.
+The associated manuscript is in preparation and will be findable with the following citation:
+
+> **The genome of the avian malaria parasite _Haemoproteus majoris_ (lineage WW2) and its relationship to other _Plasmodium_ species**
+> Amélie Bardil, Arnaud Berthomieu, Jacques Dainat, Michael C. Fontaine, Olof Hellgren, Ana Rivero, Thomas D. Otto, Sylvain Gandon*
+
+For any questions, please contact: sylvain.gandon (at) cefe.cnrs.fr 
 
 ---------------------------
 
