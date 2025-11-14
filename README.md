@@ -5,7 +5,8 @@ The associated manuscript is in preparation and will be findable with the follow
 
 > **The genome of the avian malaria parasite _Haemoproteus majoris_ (lineage WW2) and its relationship to other _Plasmodium_ species**
 > Amélie Bardil, Arnaud Berthomieu, Jacques Dainat, Michael C. Fontaine, Olof Hellgren, Ana Rivero, Thomas D. Otto, Sylvain Gandon*
-> Doi: To be annouced soon
+> 
+> Doi: *To be annouced soon*.
 
 For any questions, please contact: sylvain.gandon (at) cefe.cnrs.fr 
 
