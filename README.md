@@ -16,7 +16,7 @@ For any questions, please contact: sylvain.gandon (at) cefe.cnrs.fr
 
    * [ASSEMBLY](#assembly)
    * [ANNOTATION](#annotation)
-
+   * [SUBMISSION](#submission)
      
 ---------------------------
 
@@ -218,3 +218,65 @@ Option used: Use of reference protein evidence, Pseudogene detection, Structural
 https://companion.gla.ac.uk/
 
 
+## SUBMISSION
+
+To prepare the data for submission, we used [AGAT](https://github.com/NBISweden/AGAT) (v1.4.1) and [EMBLmyGFF3](https://github.com/NBISweden/EMBLmyGFF3) (v2.4). The corresponding parameter files are available in this repository under the `agat/` and `emblmygff3/` folders respectively.
+
+**Pre-processing notes:**
+- The FASTA file was originally in single-line format and needed to be folded (line-wrapped) before submission.
+- The assembly identifier `pilon_pilon_pilon` was renamed to `pilon3` in both the GFF and FASTA files before proceeding.
+
+### STEP 1: GFF3 preprocessing
+
+#### Remove `protein_match` features
+
+```bash
+awk 'BEGIN { FS=OFS="\t" } $3 != "protein_match"' pseudo.out.gff3 > pseudo.out.clean.gff3 # for SGS1
+```
+
+#### Move `polypeptide` attributes up to parent features (mRNA / pseudogenic_transcript)
+
+Functional annotations (`product`, `Ontology_term`, `ortholog_cluster`, `orthologous_to`) stored on `polypeptide` features are promoted to their parent `mRNA` or `pseudogenic_transcript` features using AGAT.
+
+```bash
+perl agat_sp_move_attributes_within_records_up.pl --gff pseudo.out.clean.gff3 --fc polypeptide --fp mRNA,pseudogenic_transcript -a product,Ontology_term,ortholog_cluster,orthologous_to -o pseudo.out.clean2.gff3
+```
+
+#### Remove `polypeptide` features
+
+Once attributes have been moved up, the now-redundant `polypeptide` features are removed.
+
+```bash
+awk 'BEGIN { FS=OFS="\t" } $3 != "polypeptide"' pseudo.out.clean2.gff3 > pseudo.out.clean3.gff3
+```
+
+#### Add `pseudo=1` attribute to pseudogene features
+
+The `pseudo=1` attribute is required by the EMBL format for pseudogene entries and is added where missing.
+
+```bash
+awk 'BEGIN { OFS=FS="\t" }
+{
+    if ($3 == "pseudogene" && $9 !~ /pseudo=1/) {
+        $9 = $9 ";pseudo=1"
+    }
+    print
+}' pseudo.out.clean3.gff3 > pseudo.out.clean4.gff3
+```
+
+### STEP 2: Finalise GFF3 and compute statistics
+
+The cleaned GFF3 file is symlinked to its final name, and summary statistics are computed using AGAT.
+
+```bash
+ln -s pseudo.out.clean4.gff3 WW2_final.gff
+agat_sp_statistics.pl --gff WW2_final.gff -o WW2_final.stats
+```
+
+### STEP 3: Convert to EMBL format
+
+The final GFF3 and FASTA files are converted to EMBL format using EMBLmyGFF3. Make sure to use the appropriate JSON conversion files located in the `emblmygff3/` folder.
+
+```bash
+EMBLmyGFF3 WW2_final.gff WW2.ILRA.folded.fasta -d WGS -t linear -m 'genomic DNA' -r 1 -s 'Haemoproteus majoris' -x INV --locus_tag WW2HM -p PRJEB76951 --rg CEFE/CNRS/UnivMontpellier/EPHE/IRD -o WW2.embl > WW2.embl.log 2>&1
+```
