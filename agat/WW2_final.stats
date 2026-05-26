@@ -1,0 +1,238 @@
+--------------------------------------------------------------------------------
+
+------------------------------------ contig ------------------------------------
+Number of contig                                            169
+Number contig overlapping                                   0
+Total contig length (bp)                                    23841900
+mean contig length (bp)                                     141076
+median contig length (bp)                                   39057
+90 percentile contig length (bp)                            381931
+Longest contig (bp)                                         1834218
+Shortest contig (bp)                                        638
+
+------------------------------------- gap --------------------------------------
+Number of gap                                               24
+Number gap overlapping                                      0
+Total gap length (bp)                                       36044
+mean gap length (bp)                                        1502
+median gap length (bp)                                      811
+90 percentile gap length (bp)                               3290
+Longest gap (bp)                                            6130
+Shortest gap (bp)                                           574
+
+------------------------------------- mrna -------------------------------------
+Number of gene                                              5501
+Number of mrna                                              5501
+Number of mrnas with at least one utr                       38
+Number of cds                                               5501
+Number of exon                                              13178
+Number of five_prime_utr                                    18
+Number of three_prime_utr                                   20
+Number of exon in cds                                       13178
+Number of exon in five_prime_utr                            18
+Number of exon in three_prime_utr                           20
+Number of intron in cds                                     7677
+Number of intron in exon                                    7677
+Number gene overlapping                                     9
+Number of single exon gene                                  2295
+Number of single exon mrna                                  2295
+mean mrnas per gene                                         1.0
+mean cdss per mrna                                          1.0
+mean exons per mrna                                         2.4
+mean five_prime_utrs per mrna                               0.0
+mean three_prime_utrs per mrna                              0.0
+mean exons per cds                                          2.4
+mean exons per five_prime_utr                               1.0
+mean exons per three_prime_utr                              1.0
+mean introns in cdss per mrna                               1.4
+mean introns in exons per mrna                              1.4
+Total gene length (bp)                                      12270889
+Total mrna length (bp)                                      12270889
+Total cds length (bp)                                       10739745
+Total exon length (bp)                                      10779581
+Total five_prime_utr length (bp)                            3638
+Total three_prime_utr length (bp)                           36198
+Total intron length per cds (bp)                            1491308
+Total intron length per exon (bp)                           1491308
+mean gene length (bp)                                       2231
+mean mrna length (bp)                                       2231
+mean cds length (bp)                                        1952
+mean exon length (bp)                                       818
+mean five_prime_utr length (bp)                             202
+mean three_prime_utr length (bp)                            1810
+mean cds piece length (bp)                                  815
+mean five_prime_utr piece length (bp)                       202
+mean three_prime_utr piece length (bp)                      1810
+mean intron in cds length (bp)                              194
+mean intron in exon length (bp)                             194
+median gene length (bp)                                     1527
+median mrna length (bp)                                     1527
+median cds length (bp)                                      168
+median exon length (bp)                                     168
+median five_prime_utr length (bp)                           126
+median three_prime_utr length (bp)                          159
+median cds piece length (bp)                                168
+median five_prime_utr piece length (bp)                     126
+median three_prime_utr piece length (bp)                    159
+median intron in cds length (bp)                            165
+median intron in exon length (bp)                           165
+90 percentile gene length (bp)                              4695
+90 percentile mrna length (bp)                              4695
+90 percentile cds length (bp)                               2376
+90 percentile exon length (bp)                              2377
+90 percentile five_prime_utr length (bp)                    589
+90 percentile three_prime_utr length (bp)                   6003
+90 percentile cds piece length (bp)                         2376
+90 percentile five_prime_utr piece length (bp)              589
+90 percentile three_prime_utr piece length (bp)             6003
+90 percentile intron in cds length (bp)                     334
+90 percentile intron in exon length (bp)                    334
+Longest gene (bp)                                           30260
+Longest mrna (bp)                                           30260
+Longest cds (bp)                                            29829
+Longest exon (bp)                                           14955
+Longest five_prime_utr (bp)                                 601
+Longest three_prime_utr (bp)                                11011
+Longest cds piece (bp)                                      14955
+Longest five_prime_utr piece (bp)                           601
+Longest three_prime_utr piece (bp)                          11011
+Longest intron into cds part (bp)                           1208
+Longest intron into exon part (bp)                          1208
+Shortest gene (bp)                                          201
+Shortest mrna (bp)                                          201
+Shortest cds piece (bp)                                     3
+Shortest five_prime_utr piece (bp)                          40
+Shortest three_prime_utr piece (bp)                         7
+Shortest intron into cds part (bp)                          43
+Shortest intron into exon part (bp)                         43
+
+------------------------------------ ncrna -------------------------------------
+Number of gene                                              6
+Number of ncrna                                             6
+Number gene overlapping                                     0
+Number of single exon gene                                  6
+mean ncrnas per gene                                        1.0
+Total gene length (bp)                                      682
+Total ncrna length (bp)                                     682
+mean gene length (bp)                                       114
+mean ncrna length (bp)                                      114
+median gene length (bp)                                     67
+median ncrna length (bp)                                    67
+90 percentile gene length (bp)                              na
+90 percentile ncrna length (bp)                             na
+Longest gene (bp)                                           308
+Longest ncrna (bp)                                          308
+Shortest gene (bp)                                          45
+Shortest ncrna (bp)                                         45
+
+---------------------------- pseudogenic_transcript ----------------------------
+Number of pseudogene                                        296
+Number of pseudogenic_transcript                            296
+Number of pseudogenic_exon                                  869
+Number of intron in pseudogenic_exon                        573
+Number pseudogene overlapping                               0
+Number of single exon pseudogene                            145
+Number of single exon pseudogenic_transcript                145
+mean pseudogenic_transcripts per pseudogene                 1.0
+mean pseudogenic_exons per pseudogenic_transcript           2.9
+mean introns in pseudogenic_exons per pseudogenic_transcript 1.9
+Total pseudogene length (bp)                                995038
+Total pseudogenic_transcript length (bp)                    995038
+Total pseudogenic_exon length (bp)                          963777
+Total intron length per pseudogenic_exon (bp)               31261
+mean pseudogene length (bp)                                 3362
+mean pseudogenic_transcript length (bp)                     3362
+mean pseudogenic_exon length (bp)                           1109
+mean intron in pseudogenic_exon length (bp)                 55
+median pseudogene length (bp)                               2317
+median pseudogenic_transcript length (bp)                   2317
+median pseudogenic_exon length (bp)                         438
+median intron in pseudogenic_exon length (bp)               2
+90 percentile pseudogene length (bp)                        7197
+90 percentile pseudogenic_transcript length (bp)            7197
+90 percentile pseudogenic_exon length (bp)                  2832
+90 percentile intron in pseudogenic_exon length (bp)        184
+Longest pseudogene (bp)                                     21285
+Longest pseudogenic_transcript (bp)                         21285
+Longest pseudogenic_exon (bp)                               18588
+Longest intron into pseudogenic_exon part (bp)              515
+Shortest pseudogene (bp)                                    273
+Shortest pseudogenic_transcript (bp)                        273
+Shortest intron into pseudogenic_exon part (bp)             1
+
+------------------------------------- rrna -------------------------------------
+Number of gene                                              11
+Number of rrna                                              11
+Number gene overlapping                                     0
+Number of single exon gene                                  11
+mean rrnas per gene                                         1.0
+Total gene length (bp)                                      10872
+Total rrna length (bp)                                      10872
+mean gene length (bp)                                       988
+mean rrna length (bp)                                       988
+median gene length (bp)                                     119
+median rrna length (bp)                                     119
+90 percentile gene length (bp)                              2145
+90 percentile rrna length (bp)                              2145
+Longest gene (bp)                                           3572
+Longest rrna (bp)                                           3572
+Shortest gene (bp)                                          119
+Shortest rrna (bp)                                          119
+
+------------------------------------ snorna ------------------------------------
+Number of gene                                              8
+Number of snorna                                            8
+Number gene overlapping                                     0
+Number of single exon gene                                  8
+mean snornas per gene                                       1.0
+Total gene length (bp)                                      733
+Total snorna length (bp)                                    733
+mean gene length (bp)                                       92
+mean snorna length (bp)                                     92
+median gene length (bp)                                     83
+median snorna length (bp)                                   83
+90 percentile gene length (bp)                              na
+90 percentile snorna length (bp)                            na
+Longest gene (bp)                                           145
+Longest snorna (bp)                                         145
+Shortest gene (bp)                                          75
+Shortest snorna (bp)                                        75
+
+------------------------------------ snrna -------------------------------------
+Number of gene                                              4
+Number of snrna                                             4
+Number gene overlapping                                     0
+Number of single exon gene                                  4
+mean snrnas per gene                                        1.0
+Total gene length (bp)                                      587
+Total snrna length (bp)                                     587
+mean gene length (bp)                                       147
+mean snrna length (bp)                                      147
+median gene length (bp)                                     141
+median snrna length (bp)                                    141
+90 percentile gene length (bp)                              na
+90 percentile snrna length (bp)                             na
+Longest gene (bp)                                           198
+Longest snrna (bp)                                          198
+Shortest gene (bp)                                          108
+Shortest snrna (bp)                                         108
+
+------------------------------------- trna -------------------------------------
+Number of gene                                              40
+Number of trna                                              40
+Number gene overlapping                                     0
+Number of single exon gene                                  40
+mean trnas per gene                                         1.0
+Total gene length (bp)                                      3009
+Total trna length (bp)                                      3009
+mean gene length (bp)                                       75
+mean trna length (bp)                                       75
+median gene length (bp)                                     73
+median trna length (bp)                                     73
+90 percentile gene length (bp)                              83
+90 percentile trna length (bp)                              83
+Longest gene (bp)                                           85
+Longest trna (bp)                                           85
+Shortest gene (bp)                                          72
+Shortest trna (bp)                                          72
+

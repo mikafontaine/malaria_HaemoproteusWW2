@@ -1,0 +1,32 @@
+    #############################################################################
+    # EMBLmyGFF3 v2.3                                                           #
+    # NBIS - National Bioinformatics Infrastructure Sweden                      #
+    # Authors: Martin Norling, Niclas Jareborg, Jacques Dainat                  #
+    # Please visit https://github.com/NBISweden/EMBLmyGFF3 for more information #
+    #############################################################################
+
+14:42:38 ERROR feature: >>contig<< is not a valid EMBL feature type. You can ignore this message if you don't need the feature.
+                        Otherwise tell me which EMBL feature it corresponds to by adding the information within the json mapping file.
+14:42:38 WARNING feature: Unknown qualifier 'end_range' - skipped              ]
+14:42:38 WARNING feature: Unknown qualifier 'start_range' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'fiveEndPartial' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'threeEndPartial' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'aa' - skipped                     ]
+14:42:38 WARNING feature: Unknown qualifier 'has_stop' - skipped               ]
+14:42:38 WARNING feature: Unknown qualifier 'evalue' - skipped                 ]
+14:42:38 WARNING feature: Unknown qualifier 'gc' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'model_acc' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'model_name' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'model_range' - skipped
+14:42:38 WARNING feature: Unknown qualifier 'has_start' - skipped              ]
+14:42:38 ERROR feature: >>snRNA<< is not a valid EMBL feature type. You can ignore this message if you don't need the feature.
+                        Otherwise tell me which EMBL feature it corresponds to by adding the information within the json mapping file.
+14:42:38 WARNING feature: The qualifier >ncRNA_class< is mandatory for the feature >ncRNA<. We will not report the feature.
+14:42:39 WARNING feature: The qualifier >ncRNA_class< is mandatory for the feature >ncRNA<. We will not report the feature.
+14:42:39 WARNING feature: The qualifier >ncRNA_class< is mandatory for the feature >ncRNA<. We will not report the feature.
+14:42:39 ERROR feature: >>snoRNA<< is not a valid EMBL feature type. You can ignore this message if you don't need the feature.
+                        Otherwise tell me which EMBL feature it corresponds to by adding the information within the json mapping file.
+14:42:40 WARNING feature: The qualifier >ncRNA_class< is mandatory for the feature >ncRNA<. We will not report the feature.
+14:42:41 WARNING feature: The qualifier >ncRNA_class< is mandatory for the feature >ncRNA<. We will not report the feature.
+14:42:41 WARNING feature: We will not display anymore this warning. Please use the --uncompressed_log parameter if you wish having all of them.
+Conversion done 
